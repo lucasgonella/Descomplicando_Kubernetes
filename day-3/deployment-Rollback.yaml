@@ -3,10 +3,11 @@ kind: Deployment
 metadata:
   labels:
     app: nginx-deployment
+    fruta: banana
   name: nginx-deployment
   namespace: giropops
 spec:
-  replicas: 10
+  replicas: 14
   selector:
     matchLabels:
       app: nginx-deployment
@@ -21,13 +22,13 @@ spec:
         app: nginx-deployment
     spec:
       containers:
-      - image: nginx:1.16.0
-        name: nginx
+      - image: nginx:1.17.0
+        name: nginx-app
         resources:
           limits:
             cpu: 0.5
             memory: 256Mi
           requests:
             cpu: 0.3
-            memory: 128Mi
+            memory: 64Mi
 status: {}

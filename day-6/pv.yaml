@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  labels:
+    storage: lento
+  name: meu-pv
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes: 
+    - ReadWriteOnce                       #Leitura e Escrita somente por um nó
+  persistentVolumeReclaimPolicy: Retain   #Não vai ser excluido quando o pvc for excluido.
+  hostPath:
+    path: /mnt/data
+  storageClassName: giropops
+
